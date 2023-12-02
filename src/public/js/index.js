@@ -1,16 +1,16 @@
-
-// Cliente
-const socketClient = io();
+ 
+ // Cliente
+ const socketClient = io();
 
 
 // Borrar producto
 function deleteProduct(id) {
   const productId = id;
-  socketClient.emit('deleteProduct', productId);
-}
+ socketClient.emit('deleteProduct', productId);
+  }
 
 
-document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('DOMContentLoaded', () => {
 
   // Campos del form
   const formularioAgregarProducto = document.getElementById('formularioAgregarProducto');
@@ -32,8 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
       category: categoryInput.value,
       code: codeInput.value,
       stock: parseInt(stockInput.value),
-      thumbnails: thumbnailsInput.value,
-
+      thumbnails: thumbnailsInput.value, 
+      
     };
 
     // Agregar producto
@@ -48,19 +48,19 @@ document.addEventListener('DOMContentLoaded', () => {
     stockInput.value = '';
     thumbnailsInput.value = '';
   });
-
-  socketClient.on('actualizarProductos', (productos) => {
+   
+    socketClient.on('actualizarProductos', (productos) => {
     actualizarInterfaz(productos);
   });
 
   function actualizarInterfaz(productList) {
     const container = document.querySelector('.container');
     container.innerHTML = '';
-
+  
     productList.forEach((product) => {
       const card = document.createElement('div');
       card.classList.add('cards');
-
+  
       card.innerHTML = `
         <img src="${product.thumbnails}" alt="Imagen del producto" class="productImage">
         <h3 class="cardTitle">${product.title}</h3>
@@ -68,11 +68,11 @@ document.addEventListener('DOMContentLoaded', () => {
         <h4 class="cardStock">Stock: ${product.stock}</h4>
         <button data-product-id="${product._id}" onclick="deleteProduct('${product._id}')">Eliminar✖️</button>
       `;
-
+  
       container.appendChild(card);
     });
   }
-
+  
 });
 
 

@@ -3,6 +3,7 @@ import __dirname from './utils.js';
 import exphbs from 'express-handlebars';
 import { allowInsecurePrototypeAccess } from '@handlebars/allow-prototype-access';
 import Handlebars from 'handlebars';
+import flash from "express-flash";
 import { Server } from "socket.io";
 import productsRouter from "./Routes/products.routes.js";
 import cartsRouter from "./Routes/cart.routes.js";
@@ -14,8 +15,6 @@ import session from 'express-session';
 import MongoStore from "connect-mongo";
 import './passport.js';
 import passport from "passport";
-
-
 // coneccion a db
 import "./dao/db/configDB.js"
 import { messageManager } from "./dao/db/manager/message.manager.js";
@@ -29,6 +28,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(__dirname + '/public'));
 app.use(cookieParser('SecretCookie'));
+//flash
+app.use(flash());
+
 
 //mongo 
 const URI = "mongodb+srv://ecommerce-Guillermo:coderBackend@ecommerce.mola37p.mongodb.net/Ecommerce?retryWrites=true&w=majority"
@@ -44,13 +46,20 @@ app.use(
 
 //passport 
 app.use(passport.initialize());
-app.use(passport.session())
+//Sacar si uso JWT
+//app.use(passport.session())
 
 //handlebars
 const hbs = exphbs.create({
   extname: 'handlebars',
   defaultLayout: 'main',
-  handlebars: allowInsecurePrototypeAccess(Handlebars)
+  handlebars: allowInsecurePrototypeAccess(Handlebars),
+  //creacion de helper para igualar 
+  helpers: {
+    ifEqual: function (arg1, arg2, options) {
+      return arg1 === arg2 ? options.fn(this) : options.inverse(this);
+    },
+  }
 });
 
 app.engine('handlebars', hbs.engine);
@@ -85,7 +94,7 @@ socketServer.on('connection', async (socket) => {
   socket.on('addProduct', async (product) => {
     try {
       const createdProduct = await productManager.createOne(product);
-      const productosActualizados = await productManager.findAll({ limit: 100 });
+      const productosActualizados = await productManager.findAllCustom({ limit: 100 });
       const productObject = productosActualizados.result.map(doc => doc.toObject())
       socketServer.emit('actualizarProductos', productObject);
 
@@ -100,7 +109,7 @@ socketServer.on('connection', async (socket) => {
       const result = await productManager.deleteOne({ _id: id });
 
       if (result.deletedCount > 0) {
-        const productosActualizados = await productManager.findAll({ limit: 100 });
+        const productosActualizados = await productManager.findAllCustom({ limit: 100 });
         const productObject = productosActualizados.result.map(doc => doc.toObject())
         socketServer.emit('actualizarProductos', productObject);
       } else {

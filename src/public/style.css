@@ -4,7 +4,6 @@
   box-sizing: border-box;
   max-width: 100%;
   position: relative;
-
 }
 
 main {
@@ -13,20 +12,21 @@ main {
 
 body {
   background-image: url('https://images3.alphacoders.com/114/thumb-1920-1147138.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   position: relative;
 }
 
 body::before {
   content: "";
   background-color: rgba(255, 255, 255, 0.2);
-  /* Color de fondo semitransparente */
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   z-index: -1;
-  /* Coloca la capa detrás de la imagen de fondo */
 }
 
 h2 {
@@ -82,7 +82,7 @@ h2 {
   font-size: 30px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
-  color: #ffc400;
+  color: #007bff;
   margin-top: 5px;
 }
 
@@ -111,10 +111,6 @@ footer {
   color: white;
   text-align: center;
   padding: 50px;
-  bottom: 0;
-  width: 100%;
-  z-index: -1;
-  margin-top: 100%;
 }
 
 #formularioAgregarProducto {
@@ -155,14 +151,6 @@ footer {
   background-color: #050000;
 }
 
-.contacto {
-  background-image: url('https://images3.alphacoders.com/114/thumb-1920-1147138.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  padding: 100px;
-}
-
 .chats {
   background-color: #000000c9;
   border-radius: 20px;
@@ -192,8 +180,7 @@ footer {
 .ChatMessage {
   color: #ccc;
   font-size: 35px;
-  font-family: monospace;
-  margin-bottom: 30px;
+  font-family: monospace
 }
 
 .user {
@@ -214,19 +201,6 @@ footer {
   color: #050000;
 }
 
-.botonEnviar {
-  border-radius: 10px;
-  width: 200px;
-  height: 50px;
-  background-color: rgb(75, 6, 75);
-}
-
-.botonEnviar:hover {
-  background-color: rgb(133, 0, 133);
-  transition: 0.5s;
-  transform: scale(1.02);
-}
-
 .inputCorreo {
   width: 60%;
 }
@@ -234,62 +208,6 @@ footer {
 .inputMensaje {
   width: 60%;
   height: 150px;
-  border-radius: 20px;
-}
-
-.container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 20px;
-}
-
-.cards {
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  padding: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  width: 30%;
-}
-
-.productImage {
-  max-width: 100%;
-  height: auto;
-}
-
-.cardTitle {
-  font-size: 1.2rem;
-  margin: 10px 0;
-}
-
-.cardPrice {
-  font-size: 1.1rem;
-  color: #007bff;
-  margin: 10px 0;
-}
-
-.cardStock {
-  font-size: 1rem;
-  color: #333;
-}
-
-.btn {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
-  text-decoration: none;
-  border: none;
-  border-radius: 5px;
-  margin-top: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.btn:hover {
-  background-color: #0056b3;
 }
 
 /* item details*/
@@ -348,8 +266,7 @@ footer {
 }
 
 .stockNum {
-  color: rgb(21, 21, 21);
-  font-size: 17px;
+  color: rgb(116, 114, 114);
 }
 
 .descripcion {
@@ -358,21 +275,6 @@ footer {
   border: 2px solid rgb(176, 172, 172);
   border-radius: 25px;
   padding: 50px;
-}
-
-.botonAgregar {
-  width: 80%;
-  text-decoration: none;
-  padding: 20px;
-  background-color: #39b78f;
-  color: white;
-  font-weight: 700;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 20px;
-  border-radius: 15px;
-  border: #39b78f;
-  margin: 30px;
-  display: block;
 }
 
 .botonDetail {
@@ -387,18 +289,12 @@ footer {
   border-radius: 15px;
   border: #39b78f;
   margin: 30px;
-  margin: 30px;
-  display: block;
 }
 
 .precioDetail {
   color: rgb(67, 67, 67);
   margin-bottom: 25px;
   font-size: 25px;
-}
-
-.botonAgregar:hover {
-  background-color: #74dbcb;
 }
 
 .botonDetail:hover {
@@ -410,13 +306,6 @@ footer {
   margin-top: 15px;
   padding: 50px;
   font-family: Arial, Helvetica, sans-serif;
-}
-
-.tituloItem {
-  text-align: center;
-  margin: 20px;
-  margin-bottom: 30px;
-  font-size: 100px;
 }
 
 .pagination {
@@ -434,18 +323,18 @@ footer {
 .paginationArrow {
   display: inline-block;
   padding: 10px 20px;
-  background-color: rgb(110, 2, 110);
-  color: #fff;
+  background-color: #48474767;
+  color: #000000;
   text-decoration: none;
-  border: none;
-  border-radius: 5px;
-  margin: 0 10px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+  border-radius: 3px;
+  margin: 40px;
+  font-weight: bold;
+  font-size: 16px;
 }
 
 .paginationArrow:hover {
-  background-color: #0056b3;
+  background-color: #e2e1e155;
+  color: #ff0055;
 }
 
 .divBoton {
@@ -505,6 +394,16 @@ button.filterButton {
   margin-top: 10px;
 }
 
+.botonEliminar {
+  background-color: rgb(110, 2, 110);
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
 select:focus {
   outline: none;
   border-color: rgb(110, 2, 110);
@@ -522,7 +421,7 @@ select:focus {
   display: flex;
   background-color: #fff;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 20px;
+  border-radius: 8px;
   overflow: hidden;
   ;
 }
@@ -577,189 +476,8 @@ select:focus {
   font-weight: 600;
 }
 
-/* --------------Session----------- */
-.login-container {
-  text-align: center;
-  margin: 100px auto;
-  width: 300px;
-  padding: 20px;
-  border: 1px solid #020202;
-  border-radius: 20px;
-}
-
-.login-title {
-  font-size: 24px;
-  color: #333;
-}
-
-.login-label {
-  display: block;
-  margin: 10px 0;
-  font-weight: bold;
-}
-
-.login-input {
-  width: 100%;
-  padding: 5px;
-  margin: 5px 0;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-}
-
-.login-submit {
-  background-color: #007bff;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-}
-
-.register-link {
-  text-decoration: none;
-  color: #007bff;
-}
-
-/* Estilos para el script JavaScript */
-#loginForm {
-  display: inline-block;
-}
-
-
-/* Estilos para el contenedor principal de registro*/
-.register-container {
-  text-align: center;
-  margin: 100px auto;
-  width: 300px;
-  padding: 20px;
-  border: 1px solid #000000;
-  border-radius: 20px;
-}
-
-/* Estilos para el título del formulario de registro */
-.register-title {
-  font-size: 24px;
-  color: #333;
-}
-
-/* Estilos para etiquetas de campo */
-.register-label {
-  display: block;
-  margin: 10px 0;
-  font-weight: bold;
-}
-
-/* Estilos para campos de entrada de texto */
-.register-input {
-  width: 100%;
-  padding: 5px;
-  margin: 5px 0;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-}
-
-/* Estilos para el botón de envío del formulario de registro */
-.register-submit {
-  background-color: #007bff;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-}
-
-/* Estilos para el enlace "Ingresa aquí" */
-.register-login-link {
-  text-decoration: none;
-  color: #007bff;
-}
-
-/* Estilos para el enlace "Ingresa aquí" al pasar el mouse por encima */
-.register-login-link:hover {
-  text-decoration: underline;
-  /* Subrayado al pasar el mouse por encima */
-}
-
-.profile-container {
-  background-color: #f5f5f5;
-  border: 1px solid #ddd;
-  padding: 20px;
-  width: 40%;
-  margin: 100px auto;
-  text-align: center;
-  border-radius: 25px;
-}
-
-.profile-info {
-  font-size: 25px;
-  margin: 60px 0;
-}
-
-.logout-button {
-  background-color: #81006c;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.logout-button:hover {
-  background-color: #be029f;
-}
-
-.welcome-message {
-  background-color: #7e0269;
-  color: white;
-  padding: 15px;
-  text-align: center;
-  font-size: 13px;
-  border-radius: 10px;
-  margin: 80px auto;
-  box-shadow: 0 4px 6px rgba(0, 0.9, 1, 1);
-  width: 50%;
-}
-
-/* ----------modal de inicio de sesion------ */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 50%;
-  height: 50%;
-  background-color: rgba(0, 0, 0, 0.7);
-}
-
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 50%;
-  text-align: center;
-}
-
-.close {
-  color: #df0000;
-  float: right;
-  font-size: 65px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.close:hover {
-  color: rgb(143, 0, 0);
-}
-
 .sesiones {
   position: relative;
-  background-image: url('https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?auto=format&fit=crop&q=80&w=1000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8dmlkZW9qdWVnb3N8ZW58MHx8MHx8fDA%3D');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -832,7 +550,7 @@ select:focus {
 }
 
 .sessionForm {
-  margin: 30px 30px 0px 30px;
+  margin: 20px 20px 0px 20px;
 }
 
 .sessionForm input {
@@ -874,7 +592,7 @@ select:focus {
 
 .productsHeader button:hover,
 .signout:hover {
-  background-color: rgb(0, 0, 0);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   color: white;
 }
 
@@ -884,4 +602,28 @@ select:focus {
   font-weight: 600;
   border: none;
   border-radius: 8px;
+}
+
+#carrito {
+  position: fixed;
+  top: 30px;
+  right: 20px;
+  z-index: 999;
+  border-radius: 50px;
+  padding: 20px;
+  background-color: rgb(71, 189, 228);
+}
+
+#carrito:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+#carrito .badge {
+  position: absolute;
+  top: -7px;
+  right: -7px;
+  background-color: crimson;
+  color: white;
+  border-radius: 50%;
+  padding: 5px;
 }

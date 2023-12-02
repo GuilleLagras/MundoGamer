@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Websocket Products || E-commerce</title>
+  <title>Websocket Products || Mundo Gamer</title>
 </head>
 <body>
 <h2>Productos en tiempo real</h2>
@@ -16,7 +16,7 @@
           <h3 class="cardTitle">{{this.title}}</h3>
           <h4 class="cardPrice">$ {{this.price}}</h4>
           <h4 class="cardStock">Stock: {{this.stock}}</h4>
-          <button onclick="deleteProduct('{{this._id}}')"> Eliminar ✖️</button>
+          <button class="botonEliminar" onclick="deleteProduct('{{this._id}}')"> Eliminar ✖️</button>
         </div>
       {{/each}}
     {{else}}
