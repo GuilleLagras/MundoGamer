@@ -1,43 +1,43 @@
-export default class BasicManager{
-    constructor(model,populateProps){
+export default class BasicManager {
+    constructor(model, populateProps) {
         this.model = model;
-        this.populateProps= populateProps
+        this.populateProps = populateProps
 
     }
     async findAll() {
         try {
             const response = await this.model.find().lean().populate(this.populateProps);
-        return response;
+            return response;
         } catch (error) {
             throw error;
         }
-        
+
     }
-    async findById(id){
+    async findById(id) {
         try {
             const response = await this.model.findById(id).populate(this.populateProps);;
-     return response
+            return response
         } catch (error) {
             throw error;
         }
-        
-      
+
+
     }
-    async createOne(obj){
+    async createOne(obj) {
         try {
             const response = await this.model.create(obj);
-        return response
-        } 
+            return response
+        }
         catch (error) {
             throw error;
         }
     }
-    async updateOne(id,obj){
+    async updateOne(id, obj) {
         try {
-            const response = await this.model.findByIdAndUpdate(id,obj);
-        return response
+            const response = await this.model.findByIdAndUpdate(id, obj);
+            return response
         }
-        
+
         catch (error) {
             throw error;
         }
